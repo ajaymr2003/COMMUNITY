@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Community</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #080C10; /* Dark background */
+            color: #C5C6C7; /* Light text */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1F2833; /* Darker header */
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2em;
+            color: #66FCF1; /* Teal logo */
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 15px;
+        }
+
+        nav ul li a {
+            color: #C5C6C7;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        .hero {
+            background-color: #1F2833; /* Dark hero section */
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3em; /* Reduced from 4em */
+            color: #66FCF1; /* Teal "HELLO" */
+            margin-bottom: 15px;
+        }
+
+        .hero-subtitle {
+            font-size: 1em; /* Reduced from 1.2em */
+            color: #C5C6C7;
+            margin-bottom: 25px;
+        }
+
+        .hero-button {
+            background-color: #45A29E; /* Teal button */
+            color: #C5C6C7;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .community-section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .community-section h2 {
+            font-size: 2em; /* Reduced size */
+            color: #66FCF1;
+            margin-bottom: 25px;
+        }
+
+        .community-features {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .feature {
+            background-color: #1F2833;
+            color: #C5C6C7;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            width: 30%;
+        }
+
+        .feature h3 {
+            font-size: 1.2em; /* Smaller feature titles */
+        }
+
+        .feature p {
+            font-size: 0.9em; /* Smaller feature text */
+        }
+
+        footer {
+            background-color: #1F2833;
+            color: #C5C6C7;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">BERT</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Forums</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">Members</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1 class="hero-title">HELLO</h1>
+        <p class="hero-subtitle">Join our vibrant community of software developers, designers, and enthusiasts.</p>
+        <a href="#" class="hero-button">Explore Community</a>
+    </section>
+
+    <section class="community-section">
+        <h2>What We Offer</h2>
+        <div class="community-features">
+            <div class="feature">
+                <h3>Collaborate</h3>
+                <p>Connect with other members and work on exciting projects together.</p>
+            </div>
+            <div class="feature">
+                <h3>Learn</h3>
+                <p>Access a wealth of resources, tutorials, and discussions to expand your skills.</p>
+            </div>
+            <div class="feature">
+                <h3>Share</h3>
+                <p>Share your knowledge, projects, and insights with the community.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Software Community</p>
+    </footer>
+</body>
+</html>
