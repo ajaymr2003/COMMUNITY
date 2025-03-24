@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Posting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #1e1e1e;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #f8f8f8;
+        }
+        .container {
+            width: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+            font-weight: bold;
+            color: #ffb74d;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-size: 14px;
+            color: #f8f8f8;
+            margin-bottom: 5px;
+            display: block;
+            font-weight: bold;
+        }
+        select, input {
+            padding: 10px;
+            border: 1px solid #ff9800;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+        select:focus, input:focus {
+            outline: none;
+            border-color: #ff5722;
+        }
+        button {
+            background: linear-gradient(to right, #ff9800, #ff5722);
+            color: white;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background: linear-gradient(to right, #e65100, #bf360c);
+            transform: scale(1.05);
+        }
+        .reviews {
+            margin-top: 20px;
+        }
+        .review-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border-left: 5px solid #ff9800;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        .header {
+            width: 100%;
+            padding: 20px 0;
+            background: linear-gradient(to right, #4a148c, #6a1b9a);
+            text-align: center;
+            color: #fff;
+            font-size: 36px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">Software Community</div>
+
+    <h1>Post a Review</h1>
+    <label for="roll-no">Roll No</label>
+    <input type="text" id="roll-no" required>
+
+    <script>
+        const teams = ["Team 1", "Team 2", "Team 3", "Team 4", "Team 5", "Team 6"];
+        const questions = ["Design", "Presentation", "Technology", "Problem Solving", "Execution", "Relevance to Hackathon Theme"];
+
+        teams.forEach(team => {
+            let formContent = '';
+
+            questions.forEach(question => {
+                formContent += `
+                    <label>${question}</label>
+                    <select class="rating" required>
+                        <option value="">Choose...</option>
+                        <option value="1">1 ⭐</option>
+                        <option value="2">2 ⭐⭐</option>
+                        <option value="3">3 ⭐⭐⭐</option>
+                        <option value="4">4 ⭐⭐⭐⭐</option>
+                        <option value="5">5 ⭐⭐⭐⭐⭐</option>
+                    </select>
+                `;
+            });
+
+            document.body.insertAdjacentHTML("beforeend", `
+                <div class="container">
+                    <h2>${team}</h2>
+                    <form class="review-form">
+                        ${formContent}
+                        <button type="submit">Submit</button>
+                    </form>
+                    <div class="reviews"></div>
+                </div>`);
+        });
+
+        document.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const form = event.target.closest(".review-form");
+            if (!form) return;
+
+            const rollNo = document.getElementById("roll-no").value;
+            const ratings = form.querySelectorAll(".rating");
+            const reviewsContainer = form.nextElementSibling;
+
+            if (rollNo && Array.from(ratings).every(select => select.value.trim() !== '')) {
+                const reviewItem = document.createElement("div");
+                reviewItem.classList.add("review-item");
+
+                let reviewContent = `<strong>${rollNo}</strong><br>`;
+                ratings.forEach((select, index) => {
+                    reviewContent += `<strong>${questions[index]}</strong>: ${select.value} ⭐<br>`;
+                });
+
+                reviewItem.innerHTML = reviewContent;
+                reviewsContainer.prepend(reviewItem);
+
+                form.reset();
+            }
+        });
+    </script>
+
+</body>
+</html>
